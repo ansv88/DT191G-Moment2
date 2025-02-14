@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+	<script type="importmap"></script>
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+	<header>
+		<nav class="navbar">
+			<a asp-area="" asp-controller="Home" asp-action="Index" class="logo">DT191G Moment2</a>
+
+			<ul class="nav-links">
+				<li><a asp-area="" asp-controller="Home" asp-action="Index">Anteckningar</a></li>
+				<li><a asp-area="" asp-controller="Note" asp-action="NewNote">Ny</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		@RenderBody()
+	</main>
+
+	<footer class="footer">
+		<div>
+			<p>
+				&copy;2025 - Annelie Svensson
+			</p>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

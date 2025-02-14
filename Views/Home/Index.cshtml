@@ -1,0 +1,43 @@
+﻿@{
+	ViewData["Title"] = "Mina anteckningar";
+}
+
+@model List<NoteModel>
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["DeleteSuccess"] != null)
+{
+	<p class="delete-validation">@TempData["DeleteSuccess"]</p>
+}
+
+@if (Model != null && Model.Any())
+{
+	<div class="notes-container">
+		@foreach (var note in Model)
+		{
+			<div class="note @(note.IsImportant ? "important" : "")" data-category="@note.Category">
+				<div class="note-title">@note.Title</div>
+				<p class="category-text">Kategori: @note.Category</p>
+				<div class="note-text">@note.Notes</div>
+
+				<div class="note-buttons">
+					<a asp-action="EditNote" asp-controller="Note" asp-route-id="@note.Id" class="note-button edit-button">Redigera</a>
+
+					<form asp-action="DeleteNote" asp-controller="Note" method="post" onsubmit="return confirm('Är du säker på att du vill radera anteckningen?');">
+						<input type="hidden" name="id" value="@note.Id" />
+						<button type="submit" class="note-button delete-button">Radera</button>
+					</form>
+				</div>
+			</div>
+		}
+	</div>
+}
+else
+{
+	<p class="no-notes">Inga anteckningar ännu.</p>
+}
+
+<div class="link">
+	<a asp-action="NewNote" asp-controller="Note">Lägg till ny anteckning</a>
+</div>

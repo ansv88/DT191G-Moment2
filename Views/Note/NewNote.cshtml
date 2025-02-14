@@ -1,0 +1,40 @@
+﻿@{
+	ViewData["Title"] = "Ny anteckning";
+}
+
+@model NoteModel
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="NewNote" method="post" class="note-form">
+	<div>
+		<label for="Title">Rubrik:</label>
+		<input asp-for="Title" />
+		<span asp-validation-for="Title" class="text-validation"></span>
+	</div>
+
+	<div>
+		<label for="Notes">Anteckning:</label>
+		<textarea asp-for="Notes"></textarea>
+		<span asp-validation-for="Notes" class="text-validation"></span>
+	</div>
+
+	<div>
+		<label for="Category">Kategori:</label>
+		<select asp-for="Category" asp-items="ViewBag.Categories">
+			<option value="">-- Välj kategori --</option>
+		</select>
+		<span asp-validation-for="Category" class="text-validation"></span>
+	</div>
+
+	<div class="importantcheck">
+		<input type="checkbox" asp-for="IsImportant" />
+		<label asp-for="IsImportant">Markera som viktig</label>
+	</div>
+
+	<button type="submit">Spara</button>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

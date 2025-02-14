@@ -1,0 +1,314 @@
+html {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f8f9fa;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+header {
+    padding: 10px 0;
+    background-color: #74e893;
+}
+
+/* Navigering */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Main */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    margin: 50px;
+    font-size: 1.8rem;
+}
+
+/* Bekräftelsemeddelande på radering av anteckning */
+.delete-validation {
+    color: red;
+    font-size: 1.2rem;
+}
+
+/* Formulär */
+.note-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-form div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.note-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.note-form input[type="text"],
+.note-form textarea {
+    width: 95%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.note-form select {
+    width: 95%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.note-form input:focus,
+.note-form textarea:focus,
+.note-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.note-form .importantcheck {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    color: red;
+}
+
+.note-form .importantcheck input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.note-form .importantcheck label {
+    margin-top: 3px;
+}
+
+/* Textvalidering av formulärfält */
+.text-validation {
+    display: block;
+    margin: 0 auto;
+    color: red;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Submit-knapp */
+.note-form button {
+    width: 50%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.note-form button:hover {
+    background-color: #218838;
+}
+
+/* Anteckningar */
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.note {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    width: 250px;
+    min-height: 200px;
+    padding: 20px;
+    font-size: 1rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    position: relative;
+}
+
+.note:hover {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.note.important {
+    background-color: #ffcccb !important;
+}
+
+/* Viktiga anteckningar får ett ! */
+.note.important::after {
+    content: "!";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.important-note {
+    color: red;
+}
+
+.note-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.note-text {
+    font-size: 1rem;
+}
+
+.category-text {
+    color: grey;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Kategorifärger på anteckningar */
+.note[data-category="Arbete"] {
+    background-color: #b3e0ff;
+}
+
+.note[data-category="Personligt"] {
+    background-color: #fdfd96;
+}
+
+.note[data-category="Studier"] {
+    background-color: #baffc9;
+}
+
+.note form {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    display: inline-block;
+}
+
+.no-notes {
+    font-size: 1.2rem;
+    margin-top: 100px;
+    font-style: italic;
+}
+
+main .link {
+    margin-top: 100px;
+}
+
+/* Knapp-container */
+.note-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Grundläggande knappstil */
+.note-button {
+    display: inline-block;
+    width: 100px;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Redigera-knappen */
+.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Radera-knappen */
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    margin-top: 50px;
+    color: grey;
+    border-top: 1px solid grey;
+    text-align: center;
+}
